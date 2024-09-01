@@ -1,12 +1,9 @@
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
-const bestTime = 1.513;
+const bestTime = 10.513;
 
 var firstClear = false;
-var count = 0;
 var startTime = null;
 var done = false;
-
-// function generate
 
 function clearInput(input) {
   if (!firstClear) {
@@ -16,22 +13,12 @@ function clearInput(input) {
 }
 
 function checkInput(input) {
-  let candCount = input.value.length - 1;
-  if (candCount == 0) {
+  if (input.value.length == 1) {
     startTime = Date.now();
-    count = 0;
     done = false;
     document.getElementById("result").innerHTML = "";
     document.getElementById("vid").style.display = "none";
-  }
-
-  if (candCount == count && input.value.charAt(candCount) == alphabet.charAt(candCount)) {
-    count++;
-  } else if (candCount == 25 && input.value == alphabet) {
-    document.getElementById("result").innerHTML = "Did you just try to copy-paste the whole alphabet in? Boo.";
-  }
-
-  if (count == 26 && !done) {
+  } else if (input.value.length == 26 && input.value.toLowerCase() === alphabet && !done) {
     done = true;
     let finalTime = ((Date.now() - startTime) / 1000).toFixed(3);
     if (finalTime > bestTime) {
