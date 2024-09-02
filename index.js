@@ -1,5 +1,5 @@
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
-const bestTime = 10.513;
+const bestTime = 1.513;
 
 var firstClear = false;
 var startTime = null;
